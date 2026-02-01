@@ -1,4 +1,5 @@
 const startBtn = document.getElementById("startBtn");
+const unitInput = document.getElementById("unit");
 const nameInput = document.getElementById("name");
 const empIdInput = document.getElementById("empId");
 
@@ -17,7 +18,7 @@ let score = 0;
 let answered = Array(TOTAL_QUESTIONS).fill(false);
 let selectedAnswer = Array(TOTAL_QUESTIONS).fill(null);
 
-/* ===== ANSWER KEY (63) ===== */
+/* ANSWER KEY */
 const answers = [
   "A","G","B","C","A","D","F","A","B","G",
   "A","C","D","A","E","B","A","G","A","C",
@@ -28,29 +29,28 @@ const answers = [
   "A","F","B"
 ];
 
-/* ---------- PAGE CONTROL ---------- */
-function showPage(index) {
+/* PAGE CONTROL */
+function showPage(i) {
   pages.forEach(p => p.classList.remove("active"));
-  pages[index].classList.add("active");
+  pages[i].classList.add("active");
 }
 
-/* Force start page on load */
 showPage(0);
 
-/* ---------- START BUTTON ENABLE ---------- */
-[nameInput, empIdInput].forEach(input => {
+/* START BUTTON ENABLE */
+[unitInput, nameInput, empIdInput].forEach(input => {
   input.addEventListener("input", () => {
-    startBtn.disabled = !(nameInput.value && empIdInput.value);
+    startBtn.disabled = !(unitInput.value && nameInput.value && empIdInput.value);
   });
 });
 
-/* ---------- START QUIZ ---------- */
+/* START QUIZ */
 startBtn.onclick = () => {
   showPage(1);
   loadQuestion();
 };
 
-/* ---------- LOAD QUESTION ---------- */
+/* LOAD QUESTION */
 function loadQuestion() {
   qNumber.textContent = `Question ${currentQ + 1} / ${TOTAL_QUESTIONS}`;
   qImg.src = `images/q${currentQ + 1}.png`;
@@ -68,10 +68,10 @@ function loadQuestion() {
   });
 
   prevBtn.disabled = currentQ === 0;
-  nextBtn.textContent = currentQ === TOTAL_QUESTIONS - 1 ? "Submit" : "Next";
+  nextBtn.textContent = currentQ === TOTAL_QUESTIONS - 1 ? "SUBMIT" : "NEXT >";
 }
 
-/* ---------- OPTION CLICK (ONE TIME) ---------- */
+/* OPTION CLICK */
 options.forEach(opt => {
   opt.onclick = () => {
     if (answered[currentQ]) return;
@@ -90,7 +90,7 @@ options.forEach(opt => {
   };
 });
 
-/* ---------- NAVIGATION ---------- */
+/* NAVIGATION */
 prevBtn.onclick = () => {
   if (currentQ > 0) {
     currentQ--;
@@ -107,14 +107,15 @@ nextBtn.onclick = () => {
   }
 };
 
-/* ---------- SUBMIT QUIZ ---------- */
+/* SUBMIT */
 function submitQuiz() {
   showPage(2);
   scoreText.textContent = `Your score: ${score} / ${TOTAL_QUESTIONS}`;
 
-  fetch("https://script.google.com/macros/s/AKfycbzfnnCHgE_soddKQtI9Kq-cVmRTC8Oj3K2FKTfik_8AhqaVhksYEOoNRAVw9-eQwluP/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzE76URdE9-uAlqZqWQG1dcJKJEX2zw8pbPOuICPyKAjQqYb4TbG7LPXQvtOCq6xop6/exec", {
     method: "POST",
     body: JSON.stringify({
+      unit: unitInput.value,
       name: nameInput.value,
       empId: empIdInput.value,
       score: `${score}/${TOTAL_QUESTIONS}`
