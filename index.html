@@ -12,33 +12,41 @@
   <img src="images/panasonic.png" class="logo">
   <h1>Welcome to JS Card Quiz</h1>
 
+  <input type="text" id="unit" placeholder="ENTER UNIT NAME">
   <input type="text" id="name" placeholder="ENTER YOUR NAME">
-  <input type="text" id="empId" placeholder="EMP ID">
+  <input type="text" id="empId" placeholder="ENTER EMP ID">
 
   <button id="startBtn" disabled>START QUIZ</button>
 </div>
 
 <!-- QUIZ PAGE -->
 <div id="quizPage" class="page">
-  <img src="images/panasonic.png" class="logo">
 
-  <h2 id="qNumber"></h2>
-  <img id="questionImage" class="question-img">
-
-  <div class="options">
-    <img src="images/a.png" class="option" data-option="A">
-    <img src="images/b.png" class="option" data-option="B">
-    <img src="images/c.png" class="option" data-option="C">
-    <img src="images/d.png" class="option" data-option="D">
-    <img src="images/e.png" class="option" data-option="E">
-    <img src="images/f.png" class="option" data-option="F">
-    <img src="images/g.png" class="option" data-option="G">
+  <div class="quiz-header">
+    <img src="images/panasonic.png" class="logo">
+    <h2 id="qNumber"></h2>
   </div>
 
-  <div class="nav">
-    <button id="prevBtn">Prev</button>
-    <button id="nextBtn">Next</button>
+  <div class="quiz-body">
+    <button id="prevBtn" class="side-btn">&lt; PREV</button>
+
+    <div class="question-area">
+      <img id="questionImage" class="question-img">
+
+      <div class="options">
+        <img src="images/a.png" class="option" data-option="A">
+        <img src="images/b.png" class="option" data-option="B">
+        <img src="images/c.png" class="option" data-option="C">
+        <img src="images/d.png" class="option" data-option="D">
+        <img src="images/e.png" class="option" data-option="E">
+        <img src="images/f.png" class="option" data-option="F">
+        <img src="images/g.png" class="option" data-option="G">
+      </div>
+    </div>
+
+    <button id="nextBtn" class="side-btn">NEXT &gt;</button>
   </div>
+
 </div>
 
 <!-- RESULT PAGE -->
@@ -61,7 +69,6 @@
     </button>
   </div>
 </div>
-
 
 <script src="script.js"></script>
 </body>
