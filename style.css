@@ -39,8 +39,19 @@ body {
   margin: 10px;
 }
 
+#startPage select {
+  width: 360px;
+  padding: 14px;
+  font-size: 18px;
+  margin: 10px;
+  border: 1px solid #888;
+  background: #fff;
+  color: #555;
+}
+
 #startBtn {
-  margin-top: 25px;
+  display: block;        /* forces new line */
+  margin: 30px auto;     /* centers horizontally */
   padding: 14px 60px;
   font-size: 22px;
 }
@@ -156,6 +167,29 @@ body {
 .retry-btn {
   padding: 6px 14px;
   font-size: 14px;
+}
+
+/* Options wrapper */
+.options-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Choose correct answer label */
+.choose-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0a2a6b;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+/* Options layout */
+.options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 /* ===============================
