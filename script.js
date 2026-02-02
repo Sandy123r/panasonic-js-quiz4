@@ -38,11 +38,13 @@ function showPage(i) {
 showPage(0);
 
 /* START BUTTON ENABLE */
-[unitInput, nameInput, empIdInput].forEach(input => {
-  input.addEventListener("input", () => {
-    startBtn.disabled = !(unitInput.value && nameInput.value && empIdInput.value);
-  });
-});
+function checkStartEnable() {
+  startBtn.disabled = !(unitInput.value && nameInput.value && empIdInput.value);
+}
+
+unitInput.addEventListener("change", checkStartEnable);
+nameInput.addEventListener("input", checkStartEnable);
+empIdInput.addEventListener("input", checkStartEnable);
 
 /* START QUIZ */
 startBtn.onclick = () => {
