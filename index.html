@@ -12,7 +12,18 @@
   <img src="images/panasonic.png" class="logo">
   <h1>Welcome to JS Card Quiz</h1>
 
-  <input type="text" id="unit" placeholder="ENTER UNIT NAME">
+  <select id="unit">
+  <option value="">SELECT UNIT NAME</option>
+  <option value="Daman Unit-4">Daman Unit-4</option>
+  <option value="Daman Unit-5">Daman Unit-5</option>
+  <option value="Haridwar Unit-1">Haridwar Unit-1</option>
+  <option value="Haridwar Unit-2">Haridwar Unit-2</option>
+  <option value="Kutch">Kutch</option>
+  <option value="Sricity">Sricity</option>
+  <option value="HO, Warehouses & Sales office">
+    HO, Warehouses & Sales office
+  </option>
+</select>
   <input type="text" id="name" placeholder="ENTER YOUR NAME">
   <input type="text" id="empId" placeholder="ENTER EMP ID">
 
@@ -31,18 +42,27 @@
     <button id="prevBtn" class="side-btn">&lt; PREV</button>
 
     <div class="question-area">
-      <img id="questionImage" class="question-img">
+  <img id="questionImage" class="question-img">
 
-      <div class="options">
-        <img src="images/a.png" class="option" data-option="A">
-        <img src="images/b.png" class="option" data-option="B">
-        <img src="images/c.png" class="option" data-option="C">
-        <img src="images/d.png" class="option" data-option="D">
-        <img src="images/e.png" class="option" data-option="E">
-        <img src="images/f.png" class="option" data-option="F">
-        <img src="images/g.png" class="option" data-option="G">
-      </div>
+  <div class="options-container">
+    
+    <div class="choose-text">
+      CHOOSE CORRECT<br>ANSWER ⬇
     </div>
+
+    <div class="options">
+      <img src="images/a.png" class="option" data-option="A">
+      <img src="images/b.png" class="option" data-option="B">
+      <img src="images/c.png" class="option" data-option="C">
+      <img src="images/d.png" class="option" data-option="D">
+      <img src="images/e.png" class="option" data-option="E">
+      <img src="images/f.png" class="option" data-option="F">
+      <img src="images/g.png" class="option" data-option="G">
+    </div>
+
+  </div>
+</div>
+
 
     <button id="nextBtn" class="side-btn">NEXT &gt;</button>
   </div>
